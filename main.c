@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ncurses/ncurses.h>
 
 void help()
 {
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
         else if (strcmp(argv[1], "-h") == 0)
         {
 
-            printf("Bell has been opened using %s\n", argv[1]);
+            help();
         }
         {
             printf("Error :( Bell doesnt have that command.)");
