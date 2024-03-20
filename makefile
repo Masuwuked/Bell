@@ -4,7 +4,7 @@ LDFLAGS =
 TARGET = bell
 
 $(TARGET): $(TARGET).c
-	$(CC) $(CDFLAGS) $(LDFLAGS) -o $(TARGET) $(TARGET).c
+	$(CC) $(CDFLAGS) $(LDFLAGS) -lncurses -o $(TARGET) $(TARGET).c
 
 install: $(TARGET)
 	install -m 755 $(TARGET) /usr/local/bin
