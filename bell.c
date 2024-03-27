@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ncurses.h>
+#include <unistd.h>
+
 void help()
 {
     printf("__________________________________________________________________________________________\n");
@@ -10,36 +11,37 @@ void help()
     printf("|  |  |  ||  -__||  ||  __|  _  |        |  -__|    |   _|  _  |    |   __ <|  -__||  |  |\n");
     printf("|________||_____||__||____|_____|__|__|__|_____|    |____|_____|    |______/|_____||__|__|\n");
     printf(" \n");
-    printf(" \n");
-    printf("\n");
-    printf("");
+    printf(" https://github.com/Masuwuked\n");
+    printf("Bell is Simple Program written in C for creating a countdown in the terminal\n");
+    printf("How to use Bell:\n");
+    printf("run bell with -c in the following manner\n");
+    printf("    -c <time in seconds>\n");
 }
 void start()
 {
-    int ch;
+    /* int ch;
     initscr();
     addstr("Enter a number\n");
 
-    getint("");
     while ((ch = getch()) != '\n')
     {
         printw("%c\n", ch);
         refresh();
     }
-    endwin();
+    endwin();*/
 }
 int main(int argc, char **argv)
 {
-    float version = 0.001;
+    float version = 1.01;
     if (argc < 2)
     {
-        printf("Bell is ready to use run bell -h for guide. \nBell version: %0.3f\n", version);
+        printf("Bell is ready to use run bell -h for guide. \nBell version: %0.4f\n", version);
     }
     else if (argc == 2)
     {
         if (strcmp(argv[1], "-c") == 0)
         {
-            start();
+            printf("please mention the time.\n");
         }
         else if (strcmp(argv[1], "-h") == 0)
         {
@@ -52,8 +54,38 @@ int main(int argc, char **argv)
             printf("Error :( Bell doesnt have that command run bell -h\n");
         }
     }
-    else if (argc > 2)
+    else if (argc == 3)
     {
-        printf("Command Not found please run bell with -h for guide.\n");
+        if (strcmp(argv[1], "-c") == 0)
+        {
+            if (atoi(argv[2]) > 0)
+            {
+                int i = 1;
+                int m = 0, h = 0;
+                int sec = atoi(argv[2]);
+                while (sec >= 60)
+                {
+                    sec = sec - 60;
+                    m++;
+                }
+                while (m >= 60)
+                {
+                    m = m - 60;
+                    h++;
+                }
+
+                for (; sec >= i; sec--)
+                {
+
+                    printf("The time left is %d hrs, %dmins %dsecs\n", h, m, sec);
+                    sleep(1);
+                }
+                printf("Timers UP!");
+            }
+            else
+            {
+                printf("invalid input\n");
+            }
+        }
     }
 }
