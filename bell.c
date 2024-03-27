@@ -80,7 +80,7 @@ int main(int argc, char **argv)
                     printf("The time left is %d hrs, %dmins %dsecs\n", h, m, sec);
                     sleep(1);
                 }
-                printf("Timers UP!");
+                printf("Timers UP!\n");
             }
             else
             {
