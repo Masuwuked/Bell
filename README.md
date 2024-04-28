@@ -12,6 +12,8 @@
 To use bell simply run:
 ```bell -c <Time in Seconds>```
 for example:
-```bell -c 10```
-the output will be:
-![image](https://github.com/Masuwuked/Bell/assets/74668157/830c9eb3-1f9f-4f6e-a08a-90e567b8fba5)
+```bell -c 62```
+the output will look like:
+![image](https://github.com/Masuwuked/Bell/assets/74668157/3ef3ab71-8cd9-409d-8c09-2a1a9382b2c5)
+The output will update without going to the next line.
+
