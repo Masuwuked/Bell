@@ -51,7 +51,7 @@ int main(int argc, char **argv)
         else
         /// errors go here
         {
-            printf("Error :( Bell doesnt have that command run bell -h\n");
+            printf("Error 404 \n:( Bell doesnt have that command run bell -h\n");
         }
     }
     else if (argc == 3)
@@ -60,32 +60,34 @@ int main(int argc, char **argv)
         {
             if (atoi(argv[2]) > 0)
             {
-                int i = 1;
-                int m = 0, h = 0;
                 int sec = atoi(argv[2]);
-                while (sec >= 60)
-                {
-                    sec = sec - 60;
-                    m++;
-                }
-                while (m >= 60)
-                {
-                    m = m - 60;
-                    h++;
-                }
+                int i = 0;
 
-                for (; sec >= i; sec--)
-                {
+                int m = 0, h = 0;
+                int s = sec % 60;
+                m = (m % 3600) / 60;
+                h = h % 3600;
 
-                    printf("The time left is %d hrs, %dmins %dsecs\n", h, m, sec);
+                while (sec > 0)
+                {
+                    h = sec / 3600;
+                    m = (sec % 3600) / 60;
+                    s = sec % 60;
+                    // Display the countdown
+                    printf("\r%02d:%02d:%02d", h, m, s);
+                    fflush(stdout);
                     sleep(1);
+                    sec--;
                 }
-                printf("Timers UP!\n");
+                printf("\r%02d:%02d:%02d\n", h, m, s);
+                printf("Timers Up!\n");
+
+                return 0;
             }
-            else
-            {
-                printf("invalid input\n");
-            }
+        }
+        else
+        {
+            printf("invalid input\n");
         }
     }
 }
