@@ -1,5 +1,5 @@
 # Bell
- A simple Cli tool to create a countdown which is taken from the user.
+ A simple Cli tool to create a countdown within a terminal in which time is taken as input from the user.
 
  # Installation
  To install Bell u need to have:
